@@ -1,3 +1,89 @@
-/* Design tokens land here in Step B — placeholder reset for now */
+/* ============ TOKENS — fresh nature palette ============ */
+:root{
+  --mist:#F6F8F2;        /* page background: soft sage-white */
+  --cloud:#FFFFFF;
+  --pine:#173B2E;        /* deep forest text & dark bands */
+  --pine-2:#1E4A3A;
+  --ocean:#12756A;       /* teal links & kickers */
+  --leaf:#7FB069;
+  --sun:#E8A83C;         /* golden CTA */
+  --sun-deep:#CF8F24;
+  --ink:#213830;
+  --grey:#5E6E66;
+  --line:rgba(23,59,46,.14);
+  --display:'Fraunces',serif;
+  --body:'Inter',sans-serif;
+  --hand:'Caveat',cursive;
+  --shadow:0 12px 34px rgba(23,59,46,.12);
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:sans-serif}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  background:var(--mist);
+  color:var(--ink);
+  line-height:1.7;
+  font-size:16.5px;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+
+/* ============ TYPE ============ */
+.kicker{font-size:.72rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--ocean)}
+.kicker::before{content:"— "}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.14;color:var(--pine)}
+h2{font-size:clamp(1.9rem,4.5vw,3rem);margin-top:.7rem}
+.lede{color:var(--grey);max-width:58ch;margin-top:1.1rem;font-size:1.05rem}
+
+/* ============ LAYOUT ============ */
+section{padding:5rem 6vw}
+.inner{max-width:1150px;margin:0 auto}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  min-height:52px;padding:.9rem 1.9rem;border-radius:100px;
+  font-weight:600;font-size:1rem;text-decoration:none;border:none;cursor:pointer;
+  transition:transform .2s,background .2s,box-shadow .2s;
+  -webkit-tap-highlight-color:transparent;font-family:var(--body);
+}
+.btn:active{transform:scale(.97)}
+.btn-sun{background:var(--sun);color:var(--pine)}
+.btn-sun:hover{background:var(--sun-deep);color:#fff;transform:translateY(-2px);box-shadow:0 10px 28px rgba(232,168,60,.4)}
+.btn-line{border:1.5px solid rgba(255,255,255,.65);color:#fff;background:rgba(0,0,0,.15)}
+.btn-line:hover{border-color:#fff;transform:translateY(-2px)}
+.btn-pine{border:1.5px solid var(--pine);color:var(--pine);background:transparent}
+.btn-pine:hover{background:var(--pine);color:#fff;transform:translateY(-2px)}
+.btn-forest{background:var(--pine);color:#fff}
+.btn-forest:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(23,59,46,.35)}
+
+/* ============ SIGNATURE GOLD FRAME ============ */
+.ttframe{position:relative}
+.ttframe::after{content:"";position:absolute;inset:14px;border:1.5px solid rgba(232,168,60,.9);pointer-events:none;z-index:3}
+
+/* ============ SCROLL REVEAL ============ */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  .rv{opacity:1;transform:none;transition:none}
+}
+
+/* ============ FORM ELEMENTS (base) ============ */
+input,textarea{
+  width:100%;min-height:52px;background:#fff;border:1.5px solid var(--line);
+  color:var(--ink);font-family:var(--body);font-size:1rem;padding:.85rem 1rem;
+  border-radius:10px;outline:none;
+}
+textarea{min-height:110px;resize:vertical}
+input:focus,textarea:focus{border-color:var(--ocean)}
+
+/* ============ DESKTOP BASE ADJUSTMENTS ============ */
+@media (min-width:768px){
+  section{padding:6rem 6vw}
+}

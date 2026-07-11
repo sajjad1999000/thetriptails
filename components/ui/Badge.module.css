@@ -1,0 +1,33 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.85rem;
+  border-radius: 100px;
+  font-family: var(--body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.neutral {
+  background: var(--mist);
+  color: var(--grey);
+  border: 1px solid var(--line);
+}
+
+.ocean {
+  background: rgba(18, 117, 106, 0.1);
+  color: var(--ocean);
+}
+
+.sun {
+  background: rgba(232, 168, 60, 0.16);
+  color: var(--sun-deep);
+}
+
+.pine {
+  background: var(--pine);
+  color: var(--cloud);
+}

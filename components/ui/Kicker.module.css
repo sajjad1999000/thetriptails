@@ -1,0 +1,14 @@
+.kicker {
+  font-family: var(--body);
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ocean);
+  margin: 0 0 0.75rem;
+}
+
+/* Use on dark / pine backgrounds so it stays legible */
+.dark {
+  color: var(--sun);
+}

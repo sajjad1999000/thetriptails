@@ -1,0 +1,86 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 52px;
+  padding: 0 1.75rem;
+  border-radius: 100px;
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn:focus-visible {
+  outline: 2px solid var(--ocean);
+  outline-offset: 3px;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Primary — gold CTA */
+.sun {
+  background: var(--sun);
+  color: var(--pine);
+}
+.sun:hover:not(:disabled) {
+  background: var(--sun-deep);
+  box-shadow: var(--shadow);
+}
+
+/* Secondary — outlined pine */
+.pine {
+  background: transparent;
+  color: var(--pine);
+  border-color: var(--pine);
+}
+.pine:hover:not(:disabled) {
+  background: var(--pine);
+  color: var(--cloud);
+}
+
+/* On photo/dark backgrounds */
+.line {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+.line:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: #fff;
+}
+
+/* Dark fill — for use on gold sections (e.g. newsletter) */
+.forest {
+  background: var(--pine);
+  color: var(--cloud);
+}
+.forest:hover:not(:disabled) {
+  background: var(--pine-2);
+  box-shadow: var(--shadow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition-duration: 0.01ms !important;
+  }
+}

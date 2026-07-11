@@ -1,0 +1,84 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--cloud);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(23, 59, 46, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow);
+}
+.card:hover .image {
+  transform: scale(1.06);
+}
+
+.imageLink {
+  display: block;
+}
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--mist);
+}
+.image {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.kicker {
+  margin-bottom: 0.6rem;
+}
+
+.title {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--pine);
+  margin: 0 0 0.6rem;
+  line-height: 1.25;
+}
+.title a {
+  color: inherit;
+  text-decoration: none;
+}
+.title a:hover {
+  color: var(--ocean);
+}
+
+.excerpt {
+  font-family: var(--body);
+  color: var(--grey);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 1.1rem;
+  flex: 1;
+}
+
+.byline {
+  font-family: var(--body);
+  font-size: 0.82rem;
+  color: var(--grey);
+  margin: 0;
+}
+.byline strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .image {
+    transition-duration: 0.01ms !important;
+  }
+}

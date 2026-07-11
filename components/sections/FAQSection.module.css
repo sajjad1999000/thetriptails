@@ -1,0 +1,13 @@
+.faq {
+  background: var(--cloud);
+  border-top: 1px solid var(--line);
+  padding: 5rem 6vw;
+}
+
+.inner {
+  max-width: 780px;
+}
+
+.heading {
+  margin-bottom: 2rem;
+}

@@ -1,0 +1,18 @@
+.partners {
+  background: var(--mist);
+  text-align: center;
+  padding: 5rem 6vw;
+}
+
+.inner {
+  max-width: 680px;
+}
+
+.heading {
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+}
+
+.body {
+  color: var(--grey);
+  margin: 1rem 0 1.8rem;
+}

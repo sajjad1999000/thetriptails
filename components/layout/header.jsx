@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import MobileNav from "./MobileNav";
+import MobileNav from "./Mobilenav";
 
 const NAV_LINKS = [
   { href: "/stories", label: "Stories" },

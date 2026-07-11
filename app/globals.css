@@ -87,3 +87,38 @@ input:focus,textarea:focus{border-color:var(--ocean)}
 @media (min-width:768px){
   section{padding:6rem 6vw}
 }
+
+/* ============ FOOTER ============ */
+.site-footer{
+  background:var(--pine);color:#fff;padding:4rem 6vw 2.5rem;
+}
+.foot-cta{ text-align:center;margin-bottom:3.5rem; }
+.foot-cta h2{
+  font-size:clamp(1.7rem,4.5vw,2.6rem);max-width:24ch;
+  margin:0 auto .6rem;color:#fff;
+}
+.foot-cta p{ opacity:.75;margin-bottom:1.8rem; }
+.foot-grid{
+  max-width:1150px;margin:0 auto;display:flex;flex-direction:column;
+  gap:1.6rem;align-items:center;text-align:center;
+}
+.foot-logo{ color:#fff; }
+.foot-links{
+  display:flex;gap:1.6rem;flex-wrap:wrap;justify-content:center;
+  list-style:none;
+}
+.foot-links a{
+  font-size:.88rem;text-decoration:none;opacity:.75;
+  min-height:48px;display:inline-flex;align-items:center;color:#fff;
+}
+.foot-links a:hover{ opacity:1;color:var(--sun); }
+.site-footer small{
+  display:block;text-align:center;opacity:.55;
+  margin-top:2.2rem;font-size:.8rem;
+}
+
+@media (min-width:768px){
+  .foot-grid{
+    flex-direction:row;justify-content:space-between;text-align:left;
+  }
+}

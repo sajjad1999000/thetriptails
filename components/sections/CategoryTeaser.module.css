@@ -1,0 +1,21 @@
+.section {
+  background: var(--mist);
+  padding: 5rem 6vw;
+}
+
+.intro {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 2.5rem;
+}
+
+.pillRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.pill {
+  font-size: 0.92rem;
+}

@@ -49,12 +49,48 @@
   outline: none;
 }
 .field textarea {
-  min-height: 110px;
+  min-height: 140px;
   resize: vertical;
 }
 .field input:focus,
 .field textarea:focus {
   border-color: var(--ocean);
+}
+
+/* Photo upload input — native file inputs can't be fully restyled, so we
+   theme the button part via ::file-selector-button and leave the native
+   "no file chosen" text as-is for accessibility/familiarity. */
+.fileInput {
+  width: 100%;
+  min-height: 52px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  font-family: var(--body);
+  font-size: 0.92rem;
+  color: var(--grey);
+}
+.fileInput::file-selector-button {
+  border: none;
+  background: var(--pine);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 100px;
+  margin-right: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.fileInput::file-selector-button:hover {
+  background: var(--ocean);
+}
+.fileHint {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--grey);
 }
 
 .submitBtn {
@@ -67,4 +103,34 @@
   color: var(--grey);
   font-size: 0.8rem;
   margin-top: 0.9rem;
+}
+
+/* Honeypot — hidden from sighted/screen-reader users, present for bots
+   that fill in every input they find. */
+.hpField {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Errors stay warm, not alarming — Style Reference §5: "no harsh red
+   validation states." */
+.fieldError {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--sun-deep);
+}
+
+.formAlert {
+  background: rgba(232, 168, 60, 0.12);
+  border: 1px solid rgba(232, 168, 60, 0.35);
+  color: var(--pine);
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  margin-bottom: 1.2rem;
 }

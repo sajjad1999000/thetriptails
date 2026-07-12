@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import Kicker from "@/components/ui/Kicker";
 import StoryCard from "@/components/ui/StoryCard";
@@ -106,7 +107,9 @@ export default async function StoryPage({ params }) {
           />
           <div>
             <p style={{ margin: 0, fontFamily: "var(--display)", fontSize: "1.1rem" }}>
-              {story.author.name}
+              <Link href={`/authors/${story.author.slug}`} style={{ color: "var(--pine)" }}>
+                {story.author.name}
+              </Link>
             </p>
             <p style={{ margin: 0, color: "var(--grey)" }}>{story.author.bio}</p>
           </div>

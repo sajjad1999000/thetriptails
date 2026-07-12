@@ -5,6 +5,7 @@ import NatureBand from "@/components/sections/NatureBand";
 import Solution from "@/components/sections/Solution";
 import Feature from "@/components/sections/Feature";
 import StoryGrid from "@/components/sections/StoryGrid";
+import CategoryTeaser from "@/components/sections/CategoryTeaser";
 import ProofStats from "@/components/sections/ProofStats";
 import Share from "@/components/sections/Share";
 import About from "@/components/sections/About";
@@ -97,6 +98,8 @@ export default function HomePage() {
         moreLabel="Browse all 120+ tales"
         moreHref="/stories"
       />
+
+      <CategoryTeaser />
 
       <ProofStats
         kicker="Why travellers trust us"

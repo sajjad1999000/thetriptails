@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Kicker from "./Kicker";
 import styles from "./StoryCard.module.css";
+import { getCategorySlugByName } from "@/lib/data/categories";
 
 /**
  * Usage:
@@ -17,12 +18,17 @@ import styles from "./StoryCard.module.css";
  *     readTime: 6,
  *   }} />
  *
- * Add `.rv` (scroll-reveal, Style Reference §6) to each StoryCard's parent
- * grid item or rely on this component's own `.rv` class — just make sure
- * the page sets up the shared IntersectionObserver once (not per card).
+ * Emits BreadcrumbList JSON-LD alongside the visible trail. Once
+ * lib/seo/schema.js exists (Step N), this can call a shared
+ * buildBreadcrumbSchema() helper instead of building it inline.
+ *
+ * Category in the kicker links to /category/[slug] when a matching
+ * category exists in lib/data/categories.js — falls back to plain text
+ * if there's no match, so unrecognized categories never 404.
  */
 export default function StoryCard({ story, className = "" }) {
-  const { slug, title, excerpt, coverImage, category, location, author, tale, readTime } = story;
+  const { slug, title, excerpt, coverImage, category, location, author, authorSlug, tale, readTime } = story;
+  const categorySlug = category ? getCategorySlugByName(category) : null;
 
   return (
     <article className={`${styles.card} rv ${className}`.trim()}>
@@ -39,7 +45,11 @@ export default function StoryCard({ story, className = "" }) {
       </Link>
       <div className={styles.body}>
         <Kicker className={styles.kicker}>
-          {category}
+          {categorySlug ? (
+            <Link href={`/category/${categorySlug}`}>{category}</Link>
+          ) : (
+            category
+          )}
           {location ? ` · ${location}` : ""}
         </Kicker>
         <h3 className={styles.title}>
@@ -47,7 +57,10 @@ export default function StoryCard({ story, className = "" }) {
         </h3>
         <p className={styles.excerpt}>{excerpt}</p>
         <p className={styles.byline}>
-          By <strong>{author}</strong>
+          By{" "}
+          <strong>
+            {authorSlug ? <Link href={`/authors/${authorSlug}`}>{author}</Link> : author}
+          </strong>
           {tale ? ` · ${tale}` : ""}
           {readTime ? ` · ${readTime} min read` : ""}
         </p>

@@ -127,3 +127,151 @@ input:focus,textarea:focus{border-color:var(--ocean)}
 .hero-crumbs nav[aria-label="Breadcrumb"] span {
   color: rgba(255, 255, 255, 0.85);
 }
+/* ==========================================================================
+   The Trip Tails — Global Design Tokens & Base Styles
+   Source of truth: TheTripTails-Style-Reference.md — if anything here ever
+   drifts from that doc, the doc wins and this file should be fixed.
+
+   Component-level styling (buttons, form, cards, etc.) lives in each
+   component's own CSS Module — this file only holds tokens, base element
+   styles, and simple page-layout classes used directly in page.jsx files.
+   ========================================================================== */
+
+:root {
+  --mist: #F6F8F2;
+  --cloud: #FFFFFF;
+  --pine: #173B2E;
+  --pine-2: #1E4A3A;
+  --ocean: #12756A;
+  --leaf: #7FB069;
+  --sun: #E8A83C;
+  --sun-deep: #CF8F24;
+  --ink: #213830;
+  --grey: #5E6E66;
+  --line: rgba(23, 59, 46, 0.14);
+  --display: 'Fraunces', serif;
+  --body: 'Inter', sans-serif;
+  --hand: 'Caveat', cursive;
+  --shadow: 0 12px 34px rgba(23, 59, 46, 0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body);
+  background: var(--mist);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 16.5px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--sun);
+  outline-offset: 3px;
+}
+
+.kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ocean);
+}
+.kicker::before {
+  content: "— ";
+}
+
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  line-height: 1.14;
+  color: var(--pine);
+}
+h1 {
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+  margin-top: 0.7rem;
+}
+h2 {
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  margin-top: 0.7rem;
+}
+.lede {
+  color: var(--grey);
+  max-width: 58ch;
+  margin-top: 1.1rem;
+  font-size: 1.05rem;
+}
+
+section {
+  padding: 5rem 6vw;
+}
+.inner {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* ============ Scroll reveal ============
+   Class toggling ('in') is wired up globally once Header/Footer land in
+   Step C (a single IntersectionObserver in the root layout). Elements on
+   the submit page ship with 'rv in' already applied so they're visible
+   even before that observer exists. */
+.rv { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.rv.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ============ Share / Submit page layout ============
+   Plain global classes because app/submit/page.jsx isn't a CSS Module
+   itself — only the .form component inside it is (SubmitForm.module.css). */
+.share-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .share-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.steps {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  counter-reset: s;
+}
+.step { display: flex; gap: 1.2rem; }
+.step::before {
+  counter-increment: s;
+  content: "0" counter(s);
+  font-family: var(--display);
+  font-size: 1.3rem;
+  color: var(--sun-deep);
+  border-bottom: 1.5px solid var(--sun);
+  height: fit-content;
+  padding-bottom: 0.2rem;
+  flex-shrink: 0;
+}
+.step h3 { font-size: 1.18rem; margin-bottom: 0.3rem; }
+.step p { color: var(--grey); font-size: 0.95rem; }

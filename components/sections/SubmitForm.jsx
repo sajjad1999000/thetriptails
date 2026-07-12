@@ -1,63 +1,115 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import Button from "@/components/ui/Button";
+import { submitStory } from "@/lib/actions/submitStory";
 import styles from "./SubmitForm.module.css";
 
-/**
- * NOT WIRED TO SUPABASE YET — this is intentional at this build stage.
- * Per the Build Guide, Step J ("Submit Story form + Supabase wiring")
- * is where this component's handleSubmit gets replaced with a real
- * insert into the `submissions` table, plus the Part 3 security
- * checklist (server-side validation, rate limiting, honeypot, etc).
- *
- * Per Style Reference §8 ("Forms must be functionally wired — no fake
- * placeholders in final build"), do not ship this handler as-is to
- * production. It only exists so the homepage renders and behaves
- * reasonably in the meantime.
- */
+// NOTE: useActionState is React 19 / Next.js 15+. If this project is on
+// Next 14 / React 18, swap this import for:
+//   import { useFormState as useActionState } from "react-dom";
+// same call signature, drop-in.
+
+const initialState = { status: "idle", message: "", errors: {} };
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+  return (
+    <Button variant="sun" type="submit" className={styles.submitBtn} disabled={pending}>
+      {pending ? "Sending…" : "Send my story — free"}
+    </Button>
+  );
+}
+
 export default function SubmitForm() {
-  const [form, setForm] = useState({ name: "", email: "", where: "", tale: "" });
-  const [status, setStatus] = useState("idle"); // idle | sending | sent
+  const [state, formAction] = useActionState(submitStory, initialState);
 
-  function handleChange(e) {
-    const { id, value } = e.target;
-    setForm((prev) => ({ ...prev, [id]: value }));
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    setStatus("sending");
-    // TODO (Step J): replace with a real Supabase insert into `submissions`
-    // (name, email, country/location, story text) + server-side validation.
-    setTimeout(() => setStatus("sent"), 400);
+  if (state.status === "success") {
+    return (
+      <div className={styles.form} role="status">
+        <h3 className={styles.heading}>Got it — thank you.</h3>
+        <span className={styles.hand}>we read every single one ✍</span>
+        <p>{state.message}</p>
+      </div>
+    );
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={styles.form} action={formAction} noValidate encType="multipart/form-data">
       <h3 className={styles.heading}>Start your tale</h3>
       <span className={styles.hand}>we read every single one ✍</span>
 
-      <div className={styles.field}>
-        <label htmlFor="name">Your name</label>
-        <input id="name" type="text" autoComplete="name" placeholder="Sara Khan" value={form.name} onChange={handleChange} required />
-      </div>
-      <div className={styles.field}>
-        <label htmlFor="email">Email</label>
-        <input id="email" type="email" inputMode="email" autoComplete="email" placeholder="you@email.com" value={form.email} onChange={handleChange} required />
-      </div>
-      <div className={styles.field}>
-        <label htmlFor="where">Where did it happen?</label>
-        <input id="where" type="text" placeholder="Hunza, Pakistan" value={form.where} onChange={handleChange} required />
-      </div>
-      <div className={styles.field}>
-        <label htmlFor="tale">Your tale, in a few lines</label>
-        <textarea id="tale" placeholder="It started when our bus broke down outside..." value={form.tale} onChange={handleChange} required />
+      {/* Honeypot — hidden from real visitors via CSS, left for bots that
+          fill in every field they can find. Must stay empty. */}
+      <div className={styles.hpField} aria-hidden="true">
+        <label htmlFor="company">Company</label>
+        <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <Button variant="sun" type="submit" className={styles.submitBtn} disabled={status === "sending"}>
-        {status === "sent" ? "Sent! We reply within 48 hours ✓" : status === "sending" ? "Sending…" : "Send my story — free"}
-      </Button>
+      {state.status === "error" && (
+        <p className={styles.formAlert} role="alert">
+          {state.message}
+        </p>
+      )}
+
+      <div className={styles.field}>
+        <label htmlFor="name">Your name</label>
+        <input id="name" name="name" type="text" autoComplete="name" placeholder="Sara Khan" required />
+        {state.errors?.name && <small className={styles.fieldError}>{state.errors.name}</small>}
+      </div>
+
+      <div className={styles.field}>
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          inputMode="email"
+          autoComplete="email"
+          placeholder="you@email.com"
+          required
+        />
+        {state.errors?.email && <small className={styles.fieldError}>{state.errors.email}</small>}
+      </div>
+
+      <div className={styles.field}>
+        <label htmlFor="location">Where did it happen?</label>
+        <input id="location" name="location" type="text" placeholder="Hunza, Pakistan" required />
+        {state.errors?.location && <small className={styles.fieldError}>{state.errors.location}</small>}
+      </div>
+
+      <div className={styles.field}>
+        <label htmlFor="country">Country you write from (optional)</label>
+        <input id="country" name="country" type="text" placeholder="Pakistan" />
+      </div>
+
+      <div className={styles.field}>
+        <label htmlFor="title">Give it a title (optional)</label>
+        <input id="title" name="title" type="text" placeholder="The bus that never came" />
+      </div>
+
+      <div className={styles.field}>
+        <label htmlFor="story">Your tale</label>
+        <textarea id="story" name="story" placeholder="It started when our bus broke down outside..." required />
+        {state.errors?.story && <small className={styles.fieldError}>{state.errors.story}</small>}
+      </div>
+
+      <div className={styles.field}>
+        <label htmlFor="photos">Add a photo or two (optional)</label>
+        <input
+          id="photos"
+          name="photos"
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+          multiple
+          className={styles.fileInput}
+        />
+        <small className={styles.fileHint}>JPEG, PNG, or WebP · up to 5MB each</small>
+        {state.errors?.photos && <small className={styles.fieldError}>{state.errors.photos}</small>}
+      </div>
+
+      <SubmitButton />
       <small className={styles.fine}>No account needed · You keep full ownership of your story</small>
     </form>
   );

@@ -1,6 +1,7 @@
 import "./globals.css";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
+import ScrollReveal from "../components/layout/ScrollReveal";
 
 export const metadata = {
   title: "The Trip Tails — True stories, told by travellers",
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <ScrollReveal />
         <Header />
         {children}
         <Footer />

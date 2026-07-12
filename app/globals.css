@@ -122,3 +122,8 @@ input:focus,textarea:focus{border-color:var(--ocean)}
     flex-direction:row;justify-content:space-between;text-align:left;
   }
 }
+/* Story hero breadcrumb override — light text on dark photo hero */
+.hero-crumbs nav[aria-label="Breadcrumb"] a,
+.hero-crumbs nav[aria-label="Breadcrumb"] span {
+  color: rgba(255, 255, 255, 0.85);
+}

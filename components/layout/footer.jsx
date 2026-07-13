@@ -2,9 +2,16 @@ const FOOTER_LINKS = [
   { href: "/stories", label: "Stories" },
   { href: "/submit", label: "Share your tale" },
   { href: "/about", label: "About" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/partners", label: "Partnerships" },
-  { href: "/newsletter", label: "Newsletter" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/#partners", label: "Partnerships" },
+  { href: "/#newsletter", label: "Newsletter" },
+  { href: "/write-for-us", label: "Write for Us" },
+  { href: "/advertise", label: "Advertise" },
+  { href: "/contact", label: "Contact" },
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms of Service" },
+  { href: "/editorial-guidelines", label: "Editorial Guidelines" },
+  { href: "/disclaimer", label: "Disclaimer" },
 ];
 
 export default function Footer() {

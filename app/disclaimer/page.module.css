@@ -1,0 +1,51 @@
+.hero {
+  background: var(--mist);
+  padding: 5rem 6vw 3rem;
+}
+
+.heroInner {
+  max-width: 780px;
+}
+
+.body {
+  background: var(--cloud);
+  padding: 4rem 6vw;
+}
+
+.article {
+  max-width: 780px;
+}
+
+.article h2 {
+  margin-top: 2.2rem;
+  font-size: 1.4rem;
+}
+
+.article h3 {
+  margin-top: 1.6rem;
+  font-size: 1.1rem;
+}
+
+.article p,
+.article ul {
+  margin-top: 0.9rem;
+  color: var(--ink);
+}
+
+.article ul {
+  padding-left: 1.3rem;
+}
+
+.article li {
+  margin-top: 0.4rem;
+}
+
+.note {
+  color: var(--grey);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.link {
+  color: var(--ocean);
+}

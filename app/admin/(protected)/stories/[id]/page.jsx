@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import SubmissionEditor from '@/components/admin/SubmissionEditor';
 import { saveDraftAction, publishAction } from '../../actions';
+import { SITE_URL } from '@/lib/config';
 
 export const dynamic = 'force-dynamic';
 
@@ -86,7 +87,7 @@ export default async function EditStoryPage({ params }) {
   }
 
   const existingStory = reshapeStoryForEditor(story);
-  const claimUrl = story.claim_token ? `https://thetriptails.com/claim/${story.claim_token}` : null;
+  const claimUrl = story.claim_token ? `${SITE_URL}/claim/${story.claim_token}` : null;
 
   return (
     <div>

@@ -10,8 +10,7 @@ import { getAllRegionSlugs, getRegionBySlug } from "@/lib/data/regions";
 import { getStoriesByRegion } from "@/lib/data/stories";
 import { toCardProps } from "@/lib/data/toCardProps";
 import { getDestinationCostStats, getDestinationQA } from "@/lib/supabase/destinations";
-
-const SITE_URL = "https://thetriptails.com";
+import { SITE_URL } from "@/lib/config";
 
 export function generateStaticParams() {
   return getAllRegionSlugs().map((region) => ({ region }));

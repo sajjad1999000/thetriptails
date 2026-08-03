@@ -6,8 +6,7 @@ import Newsletter from "@/components/sections/Newsletter";
 import { getAllCategorySlugs, getCategoryBySlug } from "@/lib/data/categories";
 import { getStoriesByCategory } from "@/lib/data/stories";
 import { toCardProps } from "@/lib/data/toCardProps";
-
-const SITE_URL = "https://thetriptails.com";
+import { SITE_URL } from "@/lib/config";
 
 export function generateStaticParams() {
   return getAllCategorySlugs().map((category) => ({ category }));

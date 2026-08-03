@@ -1,8 +1,7 @@
 import { getAllStories, getAllAuthorSlugs } from "@/lib/data/stories";
 import { getAllCategorySlugs, getCategorySlugByName } from "@/lib/data/categories";
 import { getAllRegionSlugs } from "@/lib/data/regions";
-
-const BASE_URL = "https://thetriptails.com";
+import { SITE_URL as BASE_URL } from "@/lib/config";
 // Bump manually when you meaningfully edit static/legal pages.
 const SITE_LAST_UPDATED = new Date("2026-07-14");
 

@@ -1,6 +1,5 @@
 import { getAllStories } from "@/lib/data/stories";
-
-const BASE_URL = "https://thetriptails.com";
+import { SITE_URL as BASE_URL } from "@/lib/config";
 
 /**
  * Place this file at app/feed.xml/route.js — Next.js Route Handlers

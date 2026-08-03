@@ -10,6 +10,7 @@ import {
   publishAction,
   rejectSubmissionAction,
 } from '../../actions';
+import { SITE_URL } from '@/lib/config';
 
 export const dynamic = 'force-dynamic';
 
@@ -101,7 +102,7 @@ export default async function LocalsNoteReviewPage({ params }) {
   const existingStory = reshapeStoryForEditor(story);
 
   const claimUrl = story?.claim_token
-    ? `https://thetriptails.com/claim/${story.claim_token}`
+    ? `${SITE_URL}/claim/${story.claim_token}`
     : null;
 
   return (

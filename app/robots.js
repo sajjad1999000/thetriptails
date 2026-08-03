@@ -1,4 +1,4 @@
-const BASE_URL = "https://thetriptails.com";
+import { SITE_URL as BASE_URL } from "@/lib/config";
 
 /**
  * Next.js App Router file convention — served at /robots.txt automatically.

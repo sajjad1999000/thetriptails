@@ -13,8 +13,7 @@ import {
 } from "@/lib/data/stories";
 import { articleSchema } from "@/lib/seo/schema";
 import { toCardProps } from "@/lib/data/toCardProps";
-
-const SITE_URL = "https://thetriptails.com";
+import { SITE_URL } from "@/lib/config";
 
 export async function generateStaticParams() {
   const slugs = await getAllStorySlugs();

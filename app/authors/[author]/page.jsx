@@ -11,8 +11,7 @@ import {
 } from "@/lib/data/stories";
 import { toCardProps } from "@/lib/data/toCardProps";
 import { getUnreadAuthorReplyStoryIds } from "@/lib/supabase/notifications";
-
-const SITE_URL = "https://thetriptails.com";
+import { SITE_URL } from "@/lib/config";
 
 // Was sync against static data — now needs to be async since author
 // slugs come from a real profiles query.

@@ -1,0 +1,69 @@
+.proof {
+  background: var(--pine);
+  color: #fff;
+  padding: 5rem 6vw;
+}
+
+.heading {
+  color: #fff;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 2.6rem 0 3.4rem;
+}
+.stat b {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 2.4rem;
+  color: var(--sun);
+  display: block;
+  line-height: 1.1;
+}
+.stat span {
+  opacity: 0.75;
+  font-size: 0.9rem;
+}
+
+.quotes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+}
+.quote {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 1.8rem 1.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+.quote p {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+.who {
+  margin-top: 1.1rem;
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sun);
+}
+
+@media (min-width: 768px) {
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .quotes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1080px) {
+  .proof {
+    padding: 6.5rem 6vw;
+  }
+}

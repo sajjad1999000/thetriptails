@@ -1,0 +1,6 @@
+.solution {
+  background: var(--cloud);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 5rem 6vw;
+}

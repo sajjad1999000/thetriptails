@@ -1,0 +1,41 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.label {
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey);
+  font-weight: 600;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.pill {
+  min-height: 44px;
+  padding: 0 1.1rem;
+  border-radius: 100px;
+  border: 1.5px solid var(--line);
+  background: var(--cloud);
+  color: var(--pine);
+  font-family: var(--body);
+  font-size: 0.86rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.pill:hover {
+  border-color: var(--ocean);
+  color: var(--ocean);
+}

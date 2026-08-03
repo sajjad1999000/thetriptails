@@ -1,0 +1,7 @@
+{
+  "crons": [
+    { "path": "/api/cron/story-of-week", "schedule": "5 0 * * 1" },
+    { "path": "/api/cron/monthly-rollup", "schedule": "0 1 1 * *" },
+    { "path": "/api/cron/yearly-tally", "schedule": "10 1 1 1 *" }
+  ]
+}

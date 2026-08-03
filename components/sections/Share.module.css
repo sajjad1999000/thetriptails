@@ -1,0 +1,53 @@
+.share {
+  background: var(--cloud);
+  padding: 5rem 6vw;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.steps {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.step {
+  display: flex;
+  gap: 1.2rem;
+}
+.stepNum {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  color: var(--sun-deep);
+  border-bottom: 1.5px solid var(--sun);
+  height: fit-content;
+  padding-bottom: 0.2rem;
+  flex-shrink: 0;
+}
+.stepTitle {
+  font-size: 1.18rem;
+  margin-bottom: 0.3rem;
+}
+.stepBody {
+  color: var(--grey);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 4rem;
+  }
+}
+
+@media (min-width: 1080px) {
+  .share {
+    padding: 6.5rem 6vw;
+  }
+}

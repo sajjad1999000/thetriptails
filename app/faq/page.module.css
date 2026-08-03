@@ -1,0 +1,10 @@
+.hero {
+  background: var(--mist);
+  padding: 5rem 6vw 3rem;
+  text-align: center;
+}
+
+.heroInner {
+  max-width: 680px;
+  margin: 0 auto;
+}

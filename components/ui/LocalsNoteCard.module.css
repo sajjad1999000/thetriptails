@@ -1,0 +1,18 @@
+.badge {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+  background: var(--sun);
+  color: var(--pine);
+  box-shadow: 0 2px 8px rgba(23, 59, 46, 0.18);
+}

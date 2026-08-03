@@ -1,0 +1,81 @@
+.nfWrap {
+  min-height: 72vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 9rem 6vw 5rem;
+  background: var(--pine);
+  background: linear-gradient(180deg, var(--pine) 0%, var(--pine-2) 100%);
+}
+.nfInner {
+  max-width: 640px;
+}
+.nfKicker {
+  display: inline-block;
+  font-family: var(--body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--sun);
+  margin-bottom: 1.1rem;
+}
+.nfInner h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 5vw, 3.2rem);
+  color: #fff;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+.nfInner p {
+  font-family: var(--body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0 auto 2.4rem;
+  max-width: 46ch;
+}
+.nfActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn {
+  min-height: 52px;
+  padding: 0 1.8rem;
+  border-radius: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+.btnSun {
+  background: var(--sun);
+  color: var(--pine);
+}
+.btnSun:hover {
+  background: var(--sun-deep);
+  transform: translateY(-2px);
+}
+.btnLine {
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  color: #fff;
+  background: transparent;
+}
+.btnLine:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nfWrap * {
+    transition-duration: 0.01ms !important;
+  }
+}

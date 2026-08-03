@@ -1,0 +1,66 @@
+.wrap {
+  background: var(--mist);
+  padding: 5rem 6vw;
+}
+
+.heading {
+  font-family: var(--display);
+  color: var(--pine);
+  font-weight: 400;
+  margin: 0.3rem 0 2rem;
+  max-width: 640px;
+}
+
+.placeholder {
+  color: var(--grey);
+  font-size: 1rem;
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.25rem;
+}
+
+.statCard,
+.statCardHighlight {
+  background: var(--cloud);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.statCardHighlight {
+  border-color: var(--sun);
+}
+
+.statValue {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  color: var(--pine);
+}
+
+.statValueHighlight {
+  font-family: var(--display);
+  font-size: 1.9rem;
+  color: var(--sun-deep);
+}
+
+.statLabel {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+  font-weight: 600;
+}
+
+.caveat {
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+  color: var(--grey);
+}

@@ -1,0 +1,13 @@
+.flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--sun);
+  color: var(--pine);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 100px;
+  text-transform: uppercase;
+}
